@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" >
+
+    <h:head>
+        <style type="text/css">
+            .value {
+                font-weight: bold;
+            }
+
+            .ui-datatable {
+                margin-bottom: 25px
+            }
+
+            .ui-datatable .ui-datatable-footer {
+                text-align:left;
+            }
+
+            .ui-datalist ul {
+                padding: 0 0 0 10px;
+                margin: 5px 0;
+            }
+
+            .ui-datatable .ui-button-icon-only .ui-button-text {
+                padding: 0;
+                line-height: 1.2;
+            }
+
+        </style>
+    </h:head>
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">
+
+            <!-- menu bar -->
+            <p:layout fullPage="true">
+                <p:layoutUnit position="north" >
+                    <h:form>  
+
+                        <p:menubar>
+                            <p:menuitem value="Ofertas del dia" action="/compras.xhtml?faces-redirect=true" />
+                            <p:menuitem value="Seguir Comprando" action="/compras.xhtml?faces-redirect=true" />
+                            <f:facet name="options">
+                                <p:inputText style="margin:1px 10px 1px 1px;" placeholder="Search"/>
+                                <p:commandButton type="button" value="Logout" icon="pi pi-home" />
+                            </f:facet>
+                            <p:submenu label="Iniciar Sesion (#{pagoBean.cliente.nombres})" icon="pi pi-cog" >
+
+                                <p:menuitem value="Login" action="/login.xhtml?faces-redirect=true" icon="pi pi-save" />
+                                <p:menuitem value="Logout" action="#{pagoBean.doDesLogin}" icon="pi pi-refresh"/>
+                                <p:menuitem value="Registrarse" action="/registro.xhtml?faces-redirect=true" icon="pi pi-refresh"/>
+
+                            </p:submenu>
+                        </p:menubar>
+
+                    </h:form>
+                </p:layoutUnit>
+                <!-- final menu bar --> 
+
+                <!-- data table center --> 
+
+                <p:layoutUnit position="center" size="400">
+                    <h:form id="form">
+                        <p:growl id="msgs" showDetail="true"/>
+
+                        <p:dataTable id="basicDT" var="listProd" value="#{carritoBean.listaProdElegidos}">
+
+                            <f:facet name="header">
+                                Basic
+                            </f:facet>
+                            <p:column headerText="ITEM">
+                                <h:outputText value="#{listProd.producto.idProducto}" />
+                            </p:column>
+                            <p:column headerText="NOMBRE">
+                                <h:outputText value="#{listProd.producto.nombres}" />
+                            </p:column>
+                            <p:column headerText="PRECIO">
+                                <h:outputText value="$#{listProd.producto.precio}" />
+                            </p:column>
+
+                            <p:column headerText="CANTIDAD">
+                                <h:outputText value="#{listProd.cantidaProductos}" />
+                            </p:column>
+
+                            <p:column headerText="SUBTOTAL">
+                                <h:outputText value="#{listProd.subtotal}" />
+                            </p:column>
+
+                            <p:column >
+                                <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="Eliminar" actionListener="#{carritoBean.eliminarProductoCarrito(listProd)}" update=":idCompra, @form"/>
+                            </p:column>
+
+
+                        </p:dataTable>
+
+                    </h:form>
+                </p:layoutUnit>
+                <!-- final data table center -->
+
+                <!-- Data table left -->
+
+                <p:layoutUnit position="east" size="100">
+                    <h:form id="idCompra">
+                        <p:growl id="mensaje" autoUpdate="true" showDetail="true" />
+                        <h3 style="margin-top:0">Basic</h3>
+                        <p:panelGrid columns="2" >
+                            <f:facet name="header">
+                                <h:outputText value="Generar Compra" />
+                            </f:facet>
+
+                            <h:outputText value="Numero Productos" />
+                            <h:outputText value="#{comprasBean.numeroProdElegidos}" />
+
+                            <h:outputText value="Total a Pagar" />
+                            <h:outputText value="#{carritoBean.precioTotalCompra()}" />
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="Generar Pago" actionListener="#{pagoBean.preparePago()}" >
+                                <p:confirm header="Confirmacion" message="Quiere realizar el pago?" icon="pi pi-exclamation-triangle"/>
+                            </p:commandButton>
+                            <p:commandButton id="detalleButton" icon="ui-icon-plus"   value="Comprar" action="#{pagoBean.comprar()}" />                             
+                            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+                                <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+                            </p:confirmDialog> 
+                        </p:panelGrid>
+
+                    </h:form> 
+                </p:layoutUnit>
+                <!-- final data table left -->
+            </p:layout>
+        </ui:define>
+    </ui:composition>
+</html>
+

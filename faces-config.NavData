@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="CrudCarrito/cliente/Create.xhtml" x="1150" y="600" zoom="true"/>
+        <Node id="CrudCarrito/users/Create.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="carrito.xhtml" x="900" y="150" zoom="true"/>
+        <Node id="CrudCarrito/pago/Create.xhtml" x="1650" y="150" zoom="true"/>
+        <Node id="registro.xhtml" x="150" y="600" zoom="true"/>
+        <Node id="CrudCarrito/compras/Edit.xhtml" x="150" y="150" zoom="true"/>
+        <Node id="CrudCarrito/compras/Create.xhtml" x="900" y="300" zoom="true"/>
+        <Node id="CrudCarrito/producto/Create.xhtml" x="650" y="450" zoom="true"/>
+        <Node id="CrudCarrito/detalleCompras/Create.xhtml" x="1400" y="150" zoom="true"/>
+        <Node id="CrudCarrito/detalleCompras/List.xhtml" x="1150" y="450" zoom="true"/>
+        <Node id="CrudCarrito/producto/List.xhtml" x="650" y="750" zoom="true"/>
+        <Node id="template.xhtml" x="150" y="750" zoom="true"/>
+        <Node id="compras.xhtml" x="1400" y="300" zoom="true"/>
+        <Node id="CrudCarrito/detalleCompras/Edit.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="CrudCarrito/users/List.xhtml" x="400" y="300" zoom="true"/>
+        <Node id="CrudCarrito/detalleCompras/View.xhtml" x="1400" y="450" zoom="true"/>
+        <Node id="CrudCarrito/cliente/List.xhtml" x="650" y="300" zoom="true"/>
+        <Node id="CrudCarrito/producto/View.xhtml" x="650" y="600" zoom="true"/>
+        <Node id="CrudCarrito/producto/Edit.xhtml" x="150" y="300" zoom="true"/>
+        <Node id="CrudCarrito/users/View.xhtml" x="400" y="450" zoom="true"/>
+        <Node id="CrudCarrito/users/Edit.xhtml" x="1150" y="300" zoom="true"/>
+        <Node id="CrudCarrito/index.xhtml" x="150" y="1050" zoom="true"/>
+        <Node id="CrudCarrito/cliente/View.xhtml" x="400" y="750" zoom="true"/>
+        <Node id="login.xhtml" x="900" y="600" zoom="true"/>
+        <Node id="CrudCarrito/compras/View.xhtml" x="1650" y="300" zoom="true"/>
+        <Node id="CrudCarrito/pago/List.xhtml" x="400" y="600" zoom="true"/>
+        <Node id="CrudCarrito/compras/List.xhtml" x="900" y="450" zoom="true"/>
+        <Node id="CrudCarrito/cliente/Edit.xhtml" x="400" y="900" zoom="true"/>
+        <Node id="CrudCarrito/pago/View.xhtml" x="150" y="450" zoom="true"/>
+        <Node id="CrudCarrito/pago/Edit.xhtml" x="1900" y="150" zoom="true"/>
+        <Node id="resumenCompra.xhtml" x="1150" y="150" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>

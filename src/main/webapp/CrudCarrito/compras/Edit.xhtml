@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ComprasEditDlg" widgetVar="ComprasEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditComprasTitle}">
+            <h:form id="ComprasEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{comprasController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditComprasLabel_idCompras}" for="idCompras" />
+                        <p:inputText id="idCompras" value="#{comprasController.selected.idCompras}" title="#{bundle.EditComprasTitle_idCompras}" required="true" requiredMessage="#{bundle.EditComprasRequiredMessage_idCompras}"/>
+                        <p:outputLabel value="#{bundle.EditComprasLabel_fechaCompras}" for="fechaCompras" />
+                        <p:inputText id="fechaCompras" value="#{comprasController.selected.fechaCompras}" title="#{bundle.EditComprasTitle_fechaCompras}" />
+                        <p:outputLabel value="#{bundle.EditComprasLabel_monto}" for="monto" />
+                        <p:inputText id="monto" value="#{comprasController.selected.monto}" title="#{bundle.EditComprasTitle_monto}" />
+                        <p:outputLabel value="#{bundle.EditComprasLabel_estado}" for="estado" />
+                        <p:inputText id="estado" value="#{comprasController.selected.estado}" title="#{bundle.EditComprasTitle_estado}" />
+                        <p:outputLabel value="#{bundle.EditComprasLabel_idPago}" for="idPago" />
+                        <p:selectOneMenu id="idPago" value="#{comprasController.selected.idPago}" required="true" requiredMessage="#{bundle.EditComprasRequiredMessage_idPago}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{pagoController.itemsAvailableSelectOne}"
+                                           var="idPagoItem"
+                                           itemValue="#{idPagoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditComprasLabel_idCliente}" for="idCliente" />
+                        <p:selectOneMenu id="idCliente" value="#{comprasController.selected.idCliente}" required="true" requiredMessage="#{bundle.EditComprasRequiredMessage_idCliente}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{clienteController.itemsAvailableSelectOne}"
+                                           var="idClienteItem"
+                                           itemValue="#{idClienteItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{comprasController.update}" value="#{bundle.Save}" update="display,:ComprasListForm:datalist" oncomplete="handleSubmit(args, 'ComprasEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ComprasEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

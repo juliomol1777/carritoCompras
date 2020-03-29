@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Hello from Facelets
+        
+        <br />
+        <h:link outcome="/CrudCarrito/cliente/List" value="Show All Cliente Items"/>
+        <br />
+        <h:link outcome="/CrudCarrito/compras/List" value="Show All Compras Items"/>
+        <br />
+        <h:link outcome="/CrudCarrito/detalleCompras/List" value="Show All DetalleCompras Items"/>
+        <br />
+        <h:link outcome="/CrudCarrito/pago/List" value="Show All Pago Items"/>
+        <br />
+        <h:link outcome="/CrudCarrito/producto/List" value="Show All Producto Items"/>
+        <br />
+        <h:link outcome="/CrudCarrito/users/List" value="Show All Users Items"/>
+        <br />
+        <h:commandButton type="button" action="#{pagoBean.logoutAdmi()}" />
+    </h:body>
+</html>
+
